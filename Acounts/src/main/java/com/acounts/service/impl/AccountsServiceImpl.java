@@ -1,8 +1,5 @@
 package com.acounts.service.impl;
 
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
-
 import com.acounts.constants.AccountsConstants;
 import com.acounts.dto.AccountsDto;
 import com.acounts.dto.CustomerDto;
@@ -15,8 +12,9 @@ import com.acounts.mapper.CustomerMapper;
 import com.acounts.repo.AccountsRepo;
 import com.acounts.repo.CustomerRepo;
 import com.acounts.service.IAccountsService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Random;
 

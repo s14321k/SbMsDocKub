@@ -1,8 +1,7 @@
 package com.acounts.repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.acounts.entity.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 

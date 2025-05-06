@@ -1,5 +1,10 @@
 package com.acounts.controller;
 
+import com.acounts.constants.AccountsConstants;
+import com.acounts.dto.CustomerDto;
+import com.acounts.dto.ErrorResponseDto;
+import com.acounts.dto.ResponseDto;
+import com.acounts.service.IAccountsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -14,12 +19,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import com.acounts.constants.AccountsConstants;
-import com.acounts.dto.CustomerDto;
-import com.acounts.dto.ErrorResponseDto;
-import com.acounts.dto.ResponseDto;
-import com.acounts.service.IAccountsService;
 
 @Tag(
         name = "CRUD REST APIs for Accounts in EazyBank",

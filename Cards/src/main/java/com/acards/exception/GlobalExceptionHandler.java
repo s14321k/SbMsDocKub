@@ -1,6 +1,6 @@
-package com.acounts.exception;
+package com.acards.exception;
 
-import com.acounts.dto.ErrorResponseDto;
+import com.acards.dto.ErrorResponseDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -59,8 +59,8 @@ public class GlobalExceptionHandler  extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorResponseDTO, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(CustomerAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponseDto> handleCustomerAlreadyExistsException(CustomerAlreadyExistsException exception,
+    @ExceptionHandler(CardAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponseDto> handleCustomerAlreadyExistsException(CardAlreadyExistsException exception,
                                                                                  WebRequest webRequest){
         ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
                 webRequest.getDescription(false),

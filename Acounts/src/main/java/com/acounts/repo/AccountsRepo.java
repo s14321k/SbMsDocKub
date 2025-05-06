@@ -1,10 +1,9 @@
 package com.acounts.repo;
 
+import com.acounts.entity.Accounts;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
-
-import com.acounts.entity.Accounts;
 
 import java.util.Optional;
 
