@@ -1,0 +1,44 @@
+services:
+    Acounts:
+        build: .
+        image: "s14321k/acounts:d1"
+        container_name: Acounts-ms
+        ports:
+            - "8080:8080"
+        deploy:
+            resources:
+                limits:
+#                    cpus: "0.1"
+                    memory: 500M
+        networks:
+            - s14321k
+    Loans:
+        image: docker.io/s14321k/loans:d1
+        container_name: loans-ms
+        build: .
+        ports:
+            - "8082:8082"
+        deploy:
+            resources:
+                limits:
+                    cpus: "0.1"
+                    memory: 500M
+        networks:
+            - s14321k
+    Cards:
+        image: docker.io/s14321k/cards:d1
+        container_name: cards-ms
+        build: .
+        ports:
+            - "8083:8083"
+        deploy:
+            resources:
+                limits:
+                    cpus: "0.1"
+                    memory: 500M
+        networks:
+            - s14321k
+
+networks:
+    s14321k:
+        driver: bridge

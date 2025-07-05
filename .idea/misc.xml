@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/Acounts" />
     <file type="web" url="file://$PROJECT_DIR$/Cards" />
+    <file type="web" url="file://$PROJECT_DIR$/configServer" />
     <file type="web" url="file://$PROJECT_DIR$/Loans" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="21" project-jdk-type="JavaSDK">

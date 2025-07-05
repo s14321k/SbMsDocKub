@@ -1,8 +1,9 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.4.5'
+	id 'org.springframework.boot' version '3.5.0'
 	id 'io.spring.dependency-management' version '1.1.7'
-	id 'org.asciidoctor.jvm.convert' version '3.3.2'
+	id 'org.asciidoctor.jvm.convert' version '4.0.4'
+	id 'com.google.cloud.tools.jib' version '3.4.5'
 }
 
 group = 'com.acards'
@@ -33,7 +34,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
@@ -51,4 +52,33 @@ tasks.named('test') {
 tasks.named('asciidoctor') {
 	inputs.dir snippetsDir
 	dependsOn test
+}
+
+//jib {
+//	from {
+//		image = "eclipse-temurin:21-jdk"
+//	}
+//	to {
+//		image = "s14321l/cards:d1"
+//	}
+//}
+
+jib {
+	from {
+		image = "eclipse-temurin:21-jdk"
+	}
+	to {
+		image = "s14321l/cards:s1"
+		tags = ['1.0', 'latest']
+//		auth {
+//			username = 'your-docker-username'
+//			password = 'your-docker-password'
+//		}
+	}
+	container {
+		ports = ['8080']
+		environment = [
+				'SPRING_PROFILES_ACTIVE': 'prod'
+		]
+	}
 }
