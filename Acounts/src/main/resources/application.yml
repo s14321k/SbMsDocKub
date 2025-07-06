@@ -3,7 +3,9 @@ server:
   
 spring:
   application:
-    name: Acounts
+    name: accounts
+  profiles:
+    active: "prod"
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
@@ -17,3 +19,45 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import: "optional:configserver:http://localhost:8888/"
+    # If the above does not work, try the following - https://stackoverflow.com/a/78598168
+    # add optional:configServer:http://localhost:8888/acounts/default
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# to enable actuator and expose all endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # '*' means all
+
+#####################################
+##                                 ##
+## These are moved to ConfigServer ##
+##                                 ##
+#####################################
+
+#  config:
+#    import:
+#      - "application_qa.yml"
+#      - "application_prod.yml"
+#    profiles:
+#      active:
+#        - "qa"
+#
+#build:
+#  version: "3.0"
+#
+#accounts:
+#  message: "Welcome to EazyBank accounts related local APIs "
+#  contactDetails:
+#    name: "John Doe - Developer"
+#    email: "john@eazybank.com"
+#  onCallSupport:
+#    - (555) 555-1234
+#    - (555) 523-1345
