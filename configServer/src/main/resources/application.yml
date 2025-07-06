@@ -1,0 +1,20 @@
+spring:
+  application:
+   name: "configServer"
+  profiles:
+#    active: "native"
+    active: "git"
+  cloud:
+    config:
+      server:
+#        native: # To fetch from system - "file:///Users//username//config"
+#          search-locations: "classpath:/config"
+          git: # To learn more about git - https://docs.spring.io/spring-cloud-config/reference/server/environment-repository/git-backend.html
+            uri: "https://github.com/eazybytes/eazybytes-config.git"
+            default-label: "main"
+            timeout: 5
+            clone-on-start: true
+            force-pull: true
+
+server:
+  port: 8888
